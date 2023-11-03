@@ -56,9 +56,50 @@
     }
 }}
 
-{{# showfootnote }}
-    <div id="footnote" class="py-3">
+    <div id="footnote">
         <div class="container-fluid">
+            <div class="row justify-content-md-center">
+              <div class="col text-center pt-5">
+                <img src="{{{footer_canal_ciencia}}}" />
+              </div>
+              <div class="col pt-5" style="padding-left: 14%;">
+                <p>Setor de Autarquia Sul (SAUS)<br/>
+                Quadra 5 - Lote - 06 - Bloco H<br/>
+                CEP 70070-902<br/>
+                Brasília DF</p>
+              </div>
+              <div class="col text-center pt-5">
+                <img src="{{{footer_facebook}}}" alt="Facebook IBICT" class="px-2" />
+                <img src="{{{footer_instagram}}}" alt="Instagram IBICT" class="px-2" />
+                <img src="{{{footer_x}}}" alt="X IBICT" class="px-2" />
+                <img src="{{{footer_youtube}}}" alt="YouTube IBICT" class="px-2" />
+              </div>
+            </div>
+            <div class="row" style="border-top: 1px solid white; border-bottom: 1px solid white;">
+               <div class="col text-center logininfocol  py-3">
+                 <strong>{{{ output.login_info }}}</strong>
+               </div>
+            </div>
+            <div class="row py-3 align-items-center" style="border-bottom: 1px solid white;">
+              <div class="col text-center">
+                <img src="{{{footer_ibict}}}" alt="Logo IBICT"/>
+              </div>
+              <div class="col text-center">
+                <img src="{{{footer_ouvidoria}}}" alt="Logo ouvidoria"/>
+              </div>
+              <div class="col text-center">
+                <img src="{{{footer_acesso-informacao}}}" alt="Logo acesso informação"/>
+              </div>
+              <div class="col text-center">
+                <img src="{{{footer_ministerio}}}" alt="Logo ministério"/>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col mt-3">
+                <p>Todo o conteúdo deste site está publicado sob a licença Creative Commons Atribuição-Sem derivações 3.0 Não Adaptada</p>
+              </div>
+            </div>
+{{# showfootnote }}
             <div class="row">
                 {{{ footnotesetting }}}
             </div>

@@ -2147,3 +2147,90 @@ body.pagelayout-login:not(.loginbackgroundimage) #footnote {
         }
     }
 }
+
+
+/*---------------------------------------
+ * IBICT
+ --------------------------------------*/
+
+#footnote .container-fluid .row {
+  width: 100%;
+  color: white;
+  background-color: #18355d;
+}
+
+#footnote .logininfocol {
+  background-color: #18355d;
+  width: 100%;
+  margin: 0;
+  color: white;
+  padding-top: 1em;
+}
+#footnote .logininfocol a {
+  color: white;
+}
+#footnote .container-fluid .text_to_html {
+  width: 100%;
+}
+#footnote .container,
+#footnote .container-fluid,
+#footnote .container-sm,
+#footnote .container-md,
+#footnote .container-lg,
+#footnote .container-xl {
+  margin: 0 0 0 0 !important;
+  padding-left: 0;
+  padding-right: 0 !important;
+}
+#footnote .row {
+  margin-left: 0;
+}
+
+#page.drawers .main-inner {
+  margin-top: 0;
+  padding: 0 0;
+}
+
+#page-header {
+  width: 100%;
+  margin-top: 2em;
+ padding: 4em;
+}
+
+div#page-navbar {
+  margin-bottom: 1.5em;
+}
+
+body:not(.backgroundimage):not(.loginbackgroundimage) #footnote {
+  border-top: none;
+  margin: 0
+}
+
+#page-header h1.h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+#page.drawers .main-inner {
+  margin-bottom: 0;
+}
+.activity-navigation {
+  background-color: #f2f8fd;
+}
+.activity-navigation .float-right {
+  margin-right: 3em;
+}
+.activity-navigation .float-left {
+  margin-left: 3em;
+}
+
+/**
+ * Course format buttons
+ *
+ */
+#buttonsectioncontainer .buttonsection {
+  background: #dce6ff;
+  color: #18355d;
+}
+#buttonsectioncontainer .buttonsection.sectionvisible {
+  background: #cf1436
+}
