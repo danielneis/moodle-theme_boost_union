@@ -119,6 +119,7 @@
         {{/regions.offcanvas.hasblocks}}
     {{/userisediting}}
 
+    {{{ output.full_header }}}
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
         {{#userisediting}}
             <div id="theme-block-region-offcanvas-editing" class="collapse">
@@ -188,7 +189,6 @@
             </div>
             {{> theme_boost_union/javascriptdisabledhint }}
             {{> theme_boost_union/infobanners }}
-            {{{ output.full_header }}}
             {{#secondarymoremenu}}
                 <div class="secondary-navigation d-print-none">
                     {{> core/moremenu}}
@@ -228,7 +228,6 @@
                         {{/overflow}}
                         {{{courserelatedhints}}}
                         {{{ output.main_content }}}
-                        {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
 
                     </section>
@@ -286,8 +285,9 @@
         {{/regions.footer.hasblocks}}
 
         {{> theme_boost/footer }}
-        {{> theme_boost_union/footnote }}
     </div>
+    {{{ output.activity_navigation }}}
+    {{> theme_boost_union/footnote }}
     {{{ output.standard_after_main_region_html }}}
 </div>
 
