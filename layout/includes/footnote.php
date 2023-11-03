@@ -38,3 +38,14 @@ if (!html_is_blank($footnotesetting)) {
     // Add footnote to templatecontext.
     $templatecontext['footnotesetting'] = $footnotesetting;
 }
+
+$templatecontext['footer_canal_ciencia'] = $OUTPUT->image_url('canal.ciencia', 'theme');
+$templatecontext['footer_facebook'] = $OUTPUT->image_url('facebook', 'theme');
+$templatecontext['footer_instagram'] = $OUTPUT->image_url('instagram', 'theme');
+$templatecontext['footer_x'] = $OUTPUT->image_url('x', 'theme');
+$templatecontext['footer_youtube'] = $OUTPUT->image_url('youtube', 'theme');
+
+$templatecontext['footer_ibict'] = $OUTPUT->image_url('ibict', 'theme');
+$templatecontext['footer_ouvidoria'] = $OUTPUT->image_url('ouvidoria', 'theme');
+$templatecontext['footer_acesso-informacao'] = $OUTPUT->image_url('acesso-informacao', 'theme');
+$templatecontext['footer_ministerio'] = $OUTPUT->image_url('ministerio', 'theme');

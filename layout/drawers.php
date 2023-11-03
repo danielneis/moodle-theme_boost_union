@@ -60,7 +60,7 @@ user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
 user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
 
 if (isloggedin()) {
-    $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
+    $courseindexopen = false; //(get_user_preferences('drawer-open-index', true) == true);
 
     if (isguestuser()) {
         $sitehomerighthandblockdrawerserverconfig = get_config('theme_boost_union', 'showsitehomerighthandblockdraweronguestlogin');
@@ -153,7 +153,7 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'courseindexopen' => $courseindexopen,
     'blockdraweropen' => $blockdraweropen,
-    'courseindex' => $courseindex,
+    'courseindex' => '', //$courseindex,
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],

@@ -122,6 +122,7 @@
     {{/userisediting}}
 
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container {{#bottombar.drawer}} footer-bottom-menu {{/bottombar.drawer}}">
+    {{{ output.full_header }}}
         {{#userisediting}}
             <div id="theme-block-region-offcanvas-editing" class="collapse">
                 <div id="theme-block-region-offcanvas-editing-inner">
@@ -173,7 +174,7 @@
                 {{#hasblocks}}
                     <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
                         <button
-                            class="btn icon-no-margin"
+                            class="btn"
                             data-toggler="drawers"
                             data-action="toggle"
                             data-target="theme_boost-drawers-blocks"
@@ -190,7 +191,6 @@
             </div>
             {{> theme_boost_union/javascriptdisabledhint }}
             {{> theme_boost_union/infobanners }}
-            {{{ output.full_header }}}
             {{#secondarymoremenu}}
                 <div class="secondary-navigation d-print-none">
                     {{> core/moremenu}}
@@ -230,7 +230,6 @@
                         {{/overflow}}
                         {{{courserelatedhints}}}
                         {{{ output.main_content }}}
-                        {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
 
                     </section>
@@ -287,6 +286,7 @@
             </div>
         {{/regions.footer.hasblocks}}
 
+        {{{ output.activity_navigation }}}
         {{> theme_boost/footer }}
         {{> theme_boost_union/footnote }}
     </div>
