@@ -82,8 +82,8 @@
 
     <a href="{{{ config.homeurl }}}" class="navbar-brand align-items-center m-0 mr-4 p-0 aabtn {{#bottombar.drawer}} d-flex {{/bottombar.drawer}} {{^bottombar.drawer}} d-none d-md-flex {{/bottombar.drawer}} ">
 
-        {{# output.should_display_navbar_logo }}
             <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
+        {{# output.should_display_navbar_logo }}
         {{/ output.should_display_navbar_logo }}
         {{^ output.should_display_navbar_logo }}
             {{{ sitename }}}
@@ -132,7 +132,7 @@
                         data-placement="bottom"
                     >
                         <span class="sr-only">{{#str}}openoffcanvas, theme_boost_union{{/str}}</span>
-                        <i class="fa fa-grip"></i>
+                        <span class="icon material-icons ">apps</span>
                     </button>
                 </div>
             {{/regions.offcanvas.hasblocks}}
@@ -151,7 +151,7 @@
                         aria-controls="theme-block-region-offcanvas-editing"
                     >
                         <span class="sr-only">{{#str}}openoffcanvas, theme_boost_union{{/str}}</span>
-                        <i class="fa fa-grip"></i>
+                        <span class="icon material-icons">apps</span>
                     </button>
                 </div>
             {{/regions.offcanvas.hasblocks}}

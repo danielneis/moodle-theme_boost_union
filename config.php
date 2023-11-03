@@ -181,9 +181,9 @@ $THEME->yuicssmodules = [];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
-$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
+$THEME->iconsystem = '\\theme_boost_union\\output\\icon_system_materialicons';
 $THEME->haseditswitch = true;
-$THEME->usescourseindex = true;
+$THEME->usescourseindex = false;
 $THEME->removedprimarynavitems = explode(',', get_config('theme_boost_union', 'hidenodesprimarynavigation'));
 // By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [

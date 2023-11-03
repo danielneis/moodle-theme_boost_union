@@ -47,8 +47,8 @@
                -> No: Wrap the course header of Moodle core in a #courseheaderimage element and add the configured
                       stacked layout class to it.
 }}
-<header id="page-header" class="header-maxwidth d-print-none">
-    <div class="w-100">
+<header id="page-header" class="header-maxwidth d-print-none" style="background-color: #dce6ff;">
+    <div class="w-100" {{#isfrontpage}}style="background-image: url('{{{imageurl}}}')"{{/isfrontpage}}>
         <div class="d-flex flex-wrap">
             {{#hasnavbar}}
             <div id="page-navbar">
@@ -77,7 +77,20 @@
                 <div class="d-flex align-items-center">
                     {{#contextheader}}
                         <div class="mr-auto">
-                            {{{contextheader}}}
+                            {{^isfrontpage}}
+                                {{{contextheader}}}
+                            {{/isfrontpage}}
+
+                            {{#isfrontpage}}
+                                <div class="page-context-header">
+                                    <div class="page-header-headings">
+                                    <h1 class="h2">Canal <span>Ciência</span></h1>
+                                    </div>
+                                </div>
+                            {{/isfrontpage}}
+
+
+
                         </div>
                     {{/contextheader}}
                     <div class="header-actions-container ml-auto" data-region="header-actions-container">

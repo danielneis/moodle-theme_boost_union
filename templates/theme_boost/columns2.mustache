@@ -79,7 +79,7 @@
                     {{> core/moremenu}}
                 </div>
             {{/secondarymoremenu}}
-        <div id="page-content" class="row pb-3 d-print-block">
+        <div id="page-content" class="row d-print-block">
             <div id="region-main-box" class="col-12">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
@@ -100,7 +100,6 @@
                     {{/overflow}}
                     {{{courserelatedhints}}}
                     {{{ output.main_content }}}
-                    {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
 
                 </section>
@@ -114,6 +113,7 @@
         </div>
     </div>
     {{{ output.standard_after_main_region_html }}}
+    {{{ output.activity_navigation }}}
     {{> theme_boost/footer }}
     {{> theme_boost_union/footnote }}
 </div>

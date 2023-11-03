@@ -54,6 +54,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // during a page output.
         static $hasflavourfavicon, $flavourfaviconurl;
 
+        return (new \moodle_url('/theme/boost_union/pix/favicon.png'))->out(false);
+
         // If the flavour favicon has already been checked.
         if ($hasflavourfavicon != null) {
             // If there is a flavour favicon.
@@ -210,6 +212,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // Initialize static variable for the flavour logo as this function is called (for whatever reason) multiple times
         // during a page output.
         static $hasflavourlogo, $flavourlogourl;
+
+        return (new \moodle_url('/theme/boost_union/pix/ibic-ead-footer.png'))->out(false);
 
         // If the flavour logo has already been checked.
         if ($hasflavourlogo != null) {
@@ -385,6 +389,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $header->pageheadingbutton = $this->page_heading_button();
         $header->courseheader = $this->course_header();
         $header->headeractions = $this->page->get_header_actions();
+        $header->isfrontpage = is_inside_frontpage($this->page->context) && $this->page->pagelayout == 'frontpage';
+        if ($header->isfrontpage) {
+            $header->imageurl = (new moodle_url('/theme/boost_union/pix/notaveis.png'))->out(false);
+        }
 
         // Add the course header image for rendering.
         if ($this->page->pagelayout == 'course' && (get_config('theme_boost_union', 'courseheaderimageenabled')

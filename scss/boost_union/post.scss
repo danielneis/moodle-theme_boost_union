@@ -2331,3 +2331,179 @@ body.theme_boost-union-footerbuttonnone.jsenabled {
         }
     }
 }
+
+
+/*---------------------------------------
+ * IBICT
+ */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#footnote .container-fluid .row {
+    width: 100%;
+    color: white;
+    background-color: #18355d;
+}
+
+#footnote .logininfocol {
+    background-color: #18355d;
+    width: 100%;
+    margin: 0;
+    color: white;
+    padding-top: 1em;
+}
+#footnote .logininfocol a {
+    color: white;
+}
+#footnote .container-fluid .text_to_html {
+    width: 100%;
+}
+#footnote .container,
+#footnote .container-fluid,
+#footnote .container-sm,
+#footnote .container-md,
+#footnote .container-lg,
+#footnote .container-xl {
+    margin: 0 0 0 0 !important;
+    padding-left: 0;
+    padding-right: 0 !important;
+}
+#footnote .row {
+    margin-left: 0;
+}
+div[data-region="footer-container-popover"],
+.footer-content-popover {
+  display: none;
+}
+
+body:not(.backgroundimage):not(.loginbackgroundimage) #footnote {
+  border-top: none;
+  margin: 0
+}
+
+.header-maxwidth {
+    margin: unset;
+}
+
+@media (min-width: 768px) {
+    #page.drawers {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    nav.navbar {
+        padding-left: 7em;
+        padding-right: 7em;
+    }
+    #page-header {
+        padding: 3em 7em;
+    }
+    .main-inner-wrapper {
+        padding-left: 6.5em;
+        padding-right: 6.5em;
+    }
+}
+
+#page-header h1.h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.activity-navigation {
+    background-color: #f2f8fd;
+}
+.activity-navigation .float-right {
+    margin-right: 3em;
+}
+.activity-navigation .float-left {
+    margin-left: 3em;
+}
+
+.action-menu .icon {
+    width: auto;
+    vertical-align: top;
+}
+
+#page.drawers.show-drawer-right {
+    padding-right: 0;
+}
+
+/**
+ * Frontpage
+ *
+ */
+body.pagelayout-frontpage #page-header .w-100 {
+    background-repeat: no-repeat;
+}
+@media (max-width: 767px) {
+    body.pagelayout-frontpage .page-header-headings {
+        height: 28em;
+    }
+    .page-header-headings h1 {
+        margin-left: 0.5em;
+    }
+    #page-header {
+        margin-bottom: 1em;
+    }
+    #footnote {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (min-width: 768px) {
+    body.pagelayout-frontpage #page-header .w-100 {
+        background-position:    right;
+    }
+    body.pagelayout-frontpage #page-header {
+        padding-left: 15em;
+        padding-right: 22em;
+    }
+    body.pagelayout-frontpage .page-context-header h1 {
+        margin-top: 1em;
+    }
+    body.pagelayout-frontpage .page-header-headings {
+        height: 25em;
+    }
+}
+
+body.pagelayout-frontpage .page-context-header h1 span {
+  color: #CF1436;
+}
+
+/**
+ * Course format buttons
+ *
+ */
+#buttonsectioncontainer .buttonsection {
+    background: #dce6ff;
+    color: #18355d;
+}
+#buttonsectioncontainer .buttonsection.sectionvisible {
+    background: #cf1436;
+}
+
+#buttonsectioncontainer {
+  margin-left: -2em;
+  padding: 0;
+  white-space: nowrap;
+}
+div.editor_atto_toolbar button .icon {
+  margin: 0;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+.atto_h5p_button .icon {
+  margin-top: -0.5em !important;
+}
+.block-featured-courses .icon {
+  margin-left: -0.25em;
+}
+
+/**
+ * Forum
+ *
+ */
+.path-mod-forum .search-icon {
+  padding: 0.2em 1em 0 0.5em;
+}
