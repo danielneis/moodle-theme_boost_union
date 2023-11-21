@@ -14,20 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
 /**
- * Theme Boost Union - Version file
+ * Core external functions and service definitions.
  *
- * @package    theme_boost_union
- * @copyright  2022 Alexander Bias, lern.link GmbH <alexander.bias@lernlink.de>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->component = 'theme_boost_union';
-$plugin->version = 2023102003;
-$plugin->release = 'v4.3-r1';
-$plugin->requires = 2023100900;
-$plugin->supported = [403, 403];
-$plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = ['theme_boost' => 2023100900];
+$functions = [
+    'theme_boost_union_output_load_materialicons_icon_system_map' => array(
+        'classname' => 'theme_boost_union\external\output\load_materialicons_map',
+        'description' => 'Load the mapping of moodle pix names to materialicons icon names',
+        'type' => 'read',
+        'loginrequired' => false,
+        'ajax' => true,
+    ),
+];
