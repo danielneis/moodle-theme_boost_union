@@ -50,5 +50,7 @@
 
 {{#unmappedIcon}}
 {{! We cannot include the pix_icon template directly here because we don't have all the mustache helpers loaded. }}
-<span class="icon {{extraclasses}} material-icons" {{#attributes}}{{name}}="{{value}}" {{/attributes}}/>{{key}}</span>
+<span class="icon {{extraclasses}} material-icons"
+{{#title}}title="{{title}}"{{/title}} 
+{{#attributes}}{{name}}="{{value}}" {{/attributes}}/>{{key}}</span>
 {{/unmappedIcon}}

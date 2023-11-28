@@ -1038,35 +1038,39 @@ body:not(.backgroundimage):not(.loginbackgroundimage) #footnote {
 }
 
 nav.navbar {
-  padding-left: 7em;
-  padding-right: 7em;
+    padding-left: 7em;
+    padding-right: 7em;
 }
 
 #page-header {
-  padding: 3em 7em;
+    padding: 3em 7em;
 }
 #page-header h1.h2 {
-  font-size: 3rem;
-  font-weight: 600;
+    font-size: 3rem;
+    font-weight: 600;
 }
 .main-inner-wrapper {
-  padding-left: 6.5em;
-  padding-right: 6.5em;
+    padding-left: 6.5em;
+    padding-right: 6.5em;
 }
 
 .activity-navigation {
-  background-color: #f2f8fd;
+    background-color: #f2f8fd;
 }
 .activity-navigation .float-right {
-  margin-right: 3em;
+    margin-right: 3em;
 }
 .activity-navigation .float-left {
-  margin-left: 3em;
+    margin-left: 3em;
 }
 
 .action-menu .icon {
-  width: auto;
-  vertical-align: top;
+    width: auto;
+    vertical-align: top;
+}
+
+#page.drawers.show-drawer-right {
+    padding-right: 0;
 }
 
 /**
