@@ -59,7 +59,7 @@ user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
 user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
 
 if (isloggedin()) {
-    $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
+    $courseindexopen = false; //(get_user_preferences('drawer-open-index', true) == true);
 
     if (isguestuser()) {
         $sitehomerighthandblockdrawerserverconfig = get_config('theme_boost_union', 'showsitehomerighthandblockdraweronguestlogin');
