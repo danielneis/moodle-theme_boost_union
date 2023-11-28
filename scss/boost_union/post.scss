@@ -1017,6 +1017,9 @@ body.pagelayout-login:not(.loginbackgroundimage) #footnote {
 #footnote .row {
     margin-left: 0;
 }
+div[data-region="footer-container-popover"] {
+  display: none;
+}
 
 body:not(.backgroundimage):not(.loginbackgroundimage) #footnote {
   border-top: none;
@@ -1059,6 +1062,11 @@ nav.navbar {
 }
 .activity-navigation .float-left {
   margin-left: 3em;
+}
+
+.action-menu .icon {
+  width: auto;
+  vertical-align: top;
 }
 
 /**
