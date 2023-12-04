@@ -48,10 +48,10 @@
         <li class="list-group-item d-flex justify-content-between">
             <div class="d-flex flex-row">
                 {{#mod}}
-                    {{^invalidname}}<span class="text-success"><i class="fa fa-check-circle-o fa-3x fa-fw"></i></span>{{/invalidname}}
-                    {{#invalidname}}<span class="text-danger"><i class="fa fa-times-circle-o fa-3x fa-fw"></i></span>{{/invalidname}}
+                    {{^invalidname}}<span class="text-success"><span class="icon material-icons fa-3x fa-fw">check_circle</span></span>{{/invalidname}}
+                    {{#invalidname}}<span class="text-danger"><span class="icon material-icons fa-3x fa-fw">error</span></span>{{/invalidname}}
                 {{/mod}}
-                {{^mod}}<span class="text-danger"><i class="fa fa-times-circle-o fa-3x fa-fw"></i></span>{{/mod}}
+                {{^mod}}<span class="text-danger"><span class="icon material-icons fa-3x fa-fw">error</span></span>{{/mod}}
                 <div class="ml-3">
                     <h6 class="mb-0">{{path}}</h6>
                     {{#mod}}
