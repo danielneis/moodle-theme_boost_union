@@ -45,12 +45,12 @@
 {{^unmappedIcon}}
 <span class="icon {{extraclasses}} material-icons" {{#aria-hidden}}aria-hidden="true"{{/aria-hidden}}
 {{#title}}title="{{title}}"{{/title}} 
-  {{#attributes}}{{name}}="{{value}}" {{/attributes}}/>{{key}}</span>
+  {{#attributes}}{{name}}="{{value}}" {{/attributes}}>{{key}}</span>
 {{/unmappedIcon}}
 
 {{#unmappedIcon}}
 {{! We cannot include the pix_icon template directly here because we don't have all the mustache helpers loaded. }}
-<span class="icon {{extraclasses}} material-icons"
+<img class="icon {{extraclasses}} material-icons"
 {{#title}}title="{{title}}"{{/title}} 
-{{#attributes}}{{name}}="{{value}}" {{/attributes}}/>{{key}}</span>
+{{#attributes}}{{name}}="{{value}}" {{/attributes}} />
 {{/unmappedIcon}}

@@ -1090,3 +1090,11 @@ nav.navbar {
   padding: 0;
   white-space: nowrap;
 }
+div.editor_atto_toolbar button .icon {
+  margin: 0;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+.atto_h5p_button .icon {
+  margin-top: -0.5em !important;
+}

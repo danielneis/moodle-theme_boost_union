@@ -45,6 +45,9 @@ class icon_system_materialicons extends \core\output\icon_system_font {
 
     public function get_core_icon_map() {
         return [
+            'atto_collapse:icon' => 'expand_more',
+            'atto_recordrtc:i/audiortc' => 'mic',
+            'atto_recordrtc:i/videortc' => 'videocam',
             'core:docs' => 'info',
             'core:book' => 'menu_book',
             'core:help' => 'help',
