@@ -1084,3 +1084,9 @@ nav.navbar {
 #buttonsectioncontainer .buttonsection.sectionvisible {
     background: #cf1436;
 }
+
+#buttonsectioncontainer {
+  margin-left: -2em;
+  padding: 0;
+  white-space: nowrap;
+}
