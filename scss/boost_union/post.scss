@@ -2226,6 +2226,29 @@ nav.navbar {
 }
 
 /**
+ * Frontpage
+ *
+ */
+body.pagelayout-frontpage #page-header .w-100 {
+  background-position:    right;
+  background-repeat: no-repeat;
+}
+body.pagelayout-frontpage #page-header {
+  padding-left: 15em;
+  padding-right: 22em;
+}
+
+body.pagelayout-frontpage .page-header-headings {
+   height: 25em;
+}
+body.pagelayout-frontpage .page-context-header h1 {
+  margin-top: 1em;
+}
+body.pagelayout-frontpage .page-context-header h1 span {
+  color: #CF1436;
+}
+
+/**
  * Course format buttons
  *
  */
