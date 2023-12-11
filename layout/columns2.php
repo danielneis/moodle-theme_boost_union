@@ -45,6 +45,7 @@ require_once($CFG->dirroot . '/theme/boost_union/locallib.php');
 
 // Add activity navigation if the feature is enabled.
 $activitynavigation = get_config('theme_boost_union', 'activitynavigation');
+$activitynavigation = THEME_BOOST_UNION_SETTING_SELECT_YES;
 if ($activitynavigation == THEME_BOOST_UNION_SETTING_SELECT_YES) {
     $PAGE->theme->usescourseindex = false;
 }

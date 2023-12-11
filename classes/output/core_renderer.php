@@ -54,6 +54,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // during a page output.
         static $hasflavourfavicon, $flavourfaviconurl;
 
+        return (new \moodle_url('/theme/boost_union/pix/favicon.png'))->out(false);
+
         // If the flavour favicon has already been checked.
         if ($hasflavourfavicon != null) {
             // If there is a flavour favicon.
@@ -210,6 +212,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // Initialize static variable for the flavour logo as this function is called (for whatever reason) multiple times
         // during a page output.
         static $hasflavourlogo, $flavourlogourl;
+
+        return (new \moodle_url('/theme/boost_union/pix/ibic-ead-footer.png'))->out(false);
 
         // If the flavour logo has already been checked.
         if ($hasflavourlogo != null) {

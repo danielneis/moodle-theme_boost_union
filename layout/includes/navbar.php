@@ -25,6 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $navbarcolorsetting = get_config('theme_boost_union', 'navbarcolor');
+$navbarcolorsetting = THEME_BOOST_UNION_SETTING_NAVBARCOLOR_PRIMARYDARK;
 
 // Compose the navbar color classes based on the navbarcolor setting.
 switch($navbarcolorsetting) {
