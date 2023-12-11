@@ -2173,7 +2173,8 @@ body.pagelayout-login:not(.loginbackgroundimage) #footnote {
 #footnote .row {
     margin-left: 0;
 }
-div[data-region="footer-container-popover"] {
+div[data-region="footer-container-popover"],
+.footer-content-popover {
   display: none;
 }
 
@@ -2191,25 +2192,22 @@ body:not(.backgroundimage):not(.loginbackgroundimage) #footnote {
         padding-left: 0;
         padding-right: 0;
     }
-}
-
-nav.navbar {
-    padding-left: 7em;
-    padding-right: 7em;
-}
-
-@media (min-width: 768px) {
+    nav.navbar {
+        padding-left: 7em;
+        padding-right: 7em;
+    }
     #page-header {
         padding: 3em 7em;
     }
+    .main-inner-wrapper {
+        padding-left: 6.5em;
+        padding-right: 6.5em;
+    }
 }
+
 #page-header h1.h2 {
     font-size: 3rem;
     font-weight: 600;
-}
-.main-inner-wrapper {
-    padding-left: 6.5em;
-    padding-right: 6.5em;
 }
 
 .activity-navigation {
@@ -2241,6 +2239,9 @@ body.pagelayout-frontpage #page-header .w-100 {
 @media (max-width: 767px) {
     body.pagelayout-frontpage .page-header-headings {
         height: 28em;
+    }
+    .page-header-headings h1 {
+        margin-left: 0.5em;
     }
     #page-header {
         margin-bottom: 1em;
