@@ -2341,6 +2341,24 @@ body.theme_boost-union-footerbuttonnone.jsenabled {
     font-family: 'Poppins', sans-serif;
 }
 
+#usernavigation div[data-region="popover-region-toggle"] .icon,
+#usernavigation div[data-region="popover-region-messages"] .icon {
+  color: #3c557a !important;
+  background-color: #dce6ff;
+  height: 50%;
+  width: 100%;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 0.4em;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+#usernavigation .popover-region-container {
+  padding: 16px;
+  border-radius: 10px;
+}
+
 #footnote .container-fluid .row {
     width: 100%;
     color: white;
@@ -2372,6 +2390,11 @@ body.theme_boost-union-footerbuttonnone.jsenabled {
 }
 #footnote .row {
     margin-left: 0;
+}
+img#ibict-logo,
+img#ouvidoria-logo,
+img#informacao-logo {
+  height: 5em;
 }
 div[data-region="footer-container-popover"],
 .footer-content-popover {
@@ -2451,6 +2474,7 @@ body.pagelayout-frontpage #page-header .w-100 {
         padding-right: 0;
     }
 }
+
 @media (min-width: 768px) {
     body.pagelayout-frontpage #page-header .w-100 {
         background-position:    right;
@@ -2469,6 +2493,21 @@ body.pagelayout-frontpage #page-header .w-100 {
 
 body.pagelayout-frontpage .page-context-header h1 span {
   color: #CF1436;
+}
+#page-admin-search .simplesearchform button {
+  height: 84%;
+}
+#page-admin-search .simplesearchform button .icon {
+  margin-right: 0.25em;
+}
+div[data-region="message-drawer"] .simplesearchform .icon-no-margin.btn.btn-submit {
+  height: 83%;
+  margin-right: 0.25em;
+  padding-right: 1em;
+}
+
+.filemanager .icon {
+  margin-right: 0.25em !important;
 }
 
 /**
@@ -2498,6 +2537,10 @@ div.editor_atto_toolbar button .icon {
 }
 .block-featured-courses .icon {
   margin-left: -0.25em;
+}
+
+.path-course #page-content h3 {
+  color: #d01a3b;
 }
 
 /**
