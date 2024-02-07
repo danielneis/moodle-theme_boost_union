@@ -636,6 +636,18 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $page->add($tab);
 
 
+        // Disable teachers from cards.
+        $name = 'theme_boost_union/disableteacherspic';
+        $title = get_string('disableteacherspic', 'theme_boost_union');
+        $description = get_string('disableteacherspicdesc', 'theme_boost_union');
+        $default = 1;
+        $choices = [0 => get_string('no'), 1 => get_string('yes')];
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+        $tab->add($setting);
+
+        // Add tab to settings page.
+        $page->add($tab);
+
         // Create course tab.
         $tab = new admin_settingpage('theme_boost_union_look_course',
                 get_string('coursetab', 'theme_boost_union', null, true));
