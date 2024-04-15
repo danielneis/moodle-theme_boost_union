@@ -67,13 +67,14 @@ class additionalregions {
         global $OUTPUT, $PAGE;
 
         $regionsdata = [];
-        foreach ($this->regions as $name => $region) {
+	foreach ($this->regions as $name => $region) {
 
+            /* 
             if (!has_capability('theme/boost_union:viewregion'.$name, $PAGE->context)) {
                 $regionsdata[$name] = ['hasblocks' => false];
                 continue;
             }
-
+            */
             $regionhtml = $OUTPUT->blocks($region);
             $blockbutton = (has_capability('theme/boost_union:editregion'.$name, $PAGE->context)) ?
                              $OUTPUT->addblockbutton($region) : '';
