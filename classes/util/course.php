@@ -67,6 +67,46 @@ class course {
     }
 
     /**
+     * Returns the (first) category image URL, falling back to a generated image if the ccategory does not have a course image.
+     *
+     * @return string The category image URL.
+     */
+    public static function get_categoryimage($categoryid) {
+        global $CFG, $OUTPUT;
+
+        // Iterate over all course image files.
+        foreach (self::get_categoryimage_files($categoryid) as $file) {
+            if ($file->is_valid_image()) {
+                // Compose the URL.
+                $url = \core\url::make_file_url('/pluginfile.php',
+                    '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                    $file->get_filearea() . '/' . $file->get_itemid() . '/'.
+                    $file->get_filepath() . $file->get_filename(), !$file->is_valid_image());
+
+                // And return it.
+                return $url->out();
+            }
+        }
+
+        // Return a generated image URL as fallback.
+        return $OUTPUT->get_generated_image_for_id($categoryid);
+    }
+
+    /**
+     * Returns all category cover image files
+     *
+     * @return array array of stored_file objects
+     */
+    public static function get_categoryimage_files($categoryid) {
+        global $CFG;
+        require_once($CFG->libdir. '/filestorage/file_storage.php');
+        $fs = get_file_storage();
+        $context = \core\context\coursecat::instance($categoryid);
+        $files = $fs->get_area_files($context->id, 'theme_boost_union', 'categoryimage', false, 'filename', false);
+        return $files;
+    }
+
+    /**
      * Returns HTML to display course contacts.
      *
      * @return array The array of course contacts.

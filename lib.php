@@ -781,7 +781,8 @@ function theme_boost_union_pluginfile($course, $cm, $context, $filearea, $args, 
         send_file($candidate, $filename, $lifetime, 0, false, false, '', false, $serveoptions);
 
         // Serve the files from the smart menu card images.
-    } else if (in_array($filearea, ['smartmenus_itemimage', 'snippets']) && $context->contextlevel === CONTEXT_SYSTEM) {
+    } else if ((in_array($filearea, ['smartmenus_itemimage', 'snippets']) && $context->contextlevel === CONTEXT_SYSTEM) ||
+               $context->contextlevel === CONTEXT_COURSECAT) {
         // Get file storage.
         $fs = get_file_storage();
 
@@ -971,4 +972,30 @@ function theme_boost_union_reset_fontawesome_icon_map() {
     $cache->delete($mapkey);
     // And rebuild it brutally.
     $instance->get_icon_name_map();
+}
+
+function theme_boost_union_extend_navigation_category_settings(navigation_node $parentnode, context_coursecat $context) {
+    global $PAGE;
+
+    // Add a link to the category image upload.
+    $url = new moodle_url('/theme/boost_union/categoryimage.php', array(
+        'id' => $context->instanceid
+    ));
+
+    // Add the recyclebin link.
+    $title = get_string('categoryimageupload', 'theme_boost_union');
+
+    $node = navigation_node::create(
+        $title,
+        $url,
+        navigation_node::NODETYPE_LEAF,
+        'theme_boost_union',
+        'theme_boost_union'
+    );
+
+    if ($PAGE->url->compare($url, URL_MATCH_BASE)) {
+        $node->make_active();
+    }
+
+    $parentnode->add_node($node);
 }

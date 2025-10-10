@@ -413,6 +413,8 @@ $string['categorylistingpresentation_nochange'] = 'Designer\'s nightmare (unchan
 $string['categorylistingpresentation_boxlist'] = 'List of boxes';
 $string['categorylistingpresentation_note'] = 'Please note: If you enabled the \'Course listing presentation\' setting above, we recommend to enable this setting as well. Both were designed to work together.';
 
+$string['categoryimageupload'] = 'Cover image upload';
+
 // Settings: Blocks tab.
 // The string for this tab is the same as on the 'Feel' page.
 // ... Section: Timeline block.

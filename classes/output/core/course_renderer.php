@@ -592,6 +592,7 @@ class course_renderer extends \core_course_renderer {
      *
      * Modifications compared to the original function:
      * * Style the category number badge if enabled, otherwise call the parent function to compose the default view.
+     * * Display categorie as cards.
      *
      * @param coursecat_helper $chelper various display options
      * @param core_course_category $coursecat
@@ -638,6 +639,8 @@ class course_renderer extends \core_course_renderer {
 
         // Make sure JS file to expand category content is included.
         $this->coursecat_include_js();
+        $classes[] = 'card';
+        $classes[] = 'course-card';
 
         $content = html_writer::start_tag('div', array(
             'class' => join(' ', $classes),
@@ -645,6 +648,7 @@ class course_renderer extends \core_course_renderer {
             'data-depth' => $depth,
             'data-showcourses' => $chelper->get_show_courses(),
             'data-type' => self::COURSECAT_TYPE_CATEGORY,
+            'style' => 'padding: 0 !important; width: 33% !important; min-width: 33% !important;'
         ));
 
         // category name
@@ -652,15 +656,14 @@ class course_renderer extends \core_course_renderer {
         $categoryname = html_writer::link(new moodle_url('/course/index.php',
                 array('categoryid' => $coursecat->id)),
                 $categoryname);
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_COUNT
-                && ($coursescount = $coursecat->get_courses_count())) {
-            $categoryname .= html_writer::tag('span', $coursescount,
-                    array('title' => get_string('numberofcourses'), 'class' => 'numberofcourse badge rounded-pill bg-secondary text-black ms-2'));
-        }
-        $content .= html_writer::start_tag('div', array('class' => 'info'));
-
-        $content .= html_writer::tag(($depth > 1) ? 'h4' : 'h3', $categoryname, array('class' => 'categoryname aabtn'));
-        $content .= html_writer::end_tag('div'); // .info
+        $templatedata = [
+            'id' => $coursecat->id,
+            'categoryname' => $categoryname,
+            'categoryimage' => course::get_categoryimage($coursecat->id),
+            'viewurl' => new moodle_url('/course/index.php', array('categoryid' => $coursecat->id)),
+            'visible' => $coursecat->visible,
+        ];
+        $content .= $this->render_from_template('theme_boost_union/categorylistingcard', $templatedata);
 
         // add category content to the output
         $content .= html_writer::tag('div', $categorycontent, array('class' => 'content'));
@@ -889,5 +892,79 @@ class course_renderer extends \core_course_renderer {
 
         // Fallback.
         return false;
+    }
+
+    /**
+     * Renders the list of subcategories in a category
+     *
+     * @param coursecat_helper $chelper various display options
+     * @param core_course_category $coursecat
+     * @param int $depth depth of the category in the current tree
+     * @return string
+     */
+    protected function coursecat_subcategories(coursecat_helper $chelper, $coursecat, $depth) {
+        global $CFG;
+        $subcategories = array();
+        if (!$chelper->get_categories_display_option('nodisplay')) {
+            $subcategories = $coursecat->get_children($chelper->get_categories_display_options());
+        }
+        $totalcount = $coursecat->get_children_count();
+        if (!$totalcount) {
+            // Note that we call core_course_category::get_children_count() AFTER core_course_category::get_children()
+            // to avoid extra DB requests.
+            // Categories count is cached during children categories retrieval.
+            return '';
+        }
+
+        // prepare content of paging bar or more link if it is needed
+        $paginationurl = $chelper->get_categories_display_option('paginationurl');
+        $paginationallowall = $chelper->get_categories_display_option('paginationallowall');
+        if ($totalcount > count($subcategories)) {
+            if ($paginationurl) {
+                // the option 'paginationurl was specified, display pagingbar
+                $perpage = $chelper->get_categories_display_option('limit', $CFG->coursesperpage);
+                $page = $chelper->get_categories_display_option('offset') / $perpage;
+                $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
+                        $paginationurl->out(false, array('perpage' => $perpage)));
+                if ($paginationallowall) {
+                    $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
+                            get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                }
+            } else if ($viewmoreurl = $chelper->get_categories_display_option('viewmoreurl')) {
+                // the option 'viewmoreurl' was specified, display more link (if it is link to category view page, add category id)
+                if ($viewmoreurl->compare(new moodle_url('/course/index.php'), URL_MATCH_BASE)) {
+                    $viewmoreurl->param('categoryid', $coursecat->id);
+                }
+                $viewmoretext = $chelper->get_categories_display_option('viewmoretext', new lang_string('viewmore'));
+                $morelink = html_writer::tag('div', html_writer::link($viewmoreurl, $viewmoretext),
+                        array('class' => 'paging paging-morelink'));
+            }
+        } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
+            // there are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode
+            $pagingbar = html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
+                get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+        }
+
+        // This is the only change on the original function.
+        // Display list of subcategories *as cards*.
+        $content = html_writer::start_tag('div', array('class' => 'subcategories card-grid', 'style' => "gap: 1em;  padding: 1em; overflow-y: scroll"));
+
+        if (!empty($pagingbar)) {
+            $content .= $pagingbar;
+        }
+
+        foreach ($subcategories as $subcategory) {
+            $content .= $this->coursecat_category($chelper, $subcategory, $depth + 1);
+        }
+
+        if (!empty($pagingbar)) {
+            $content .= $pagingbar;
+        }
+        if (!empty($morelink)) {
+            $content .= $morelink;
+        }
+
+        $content .= html_writer::end_tag('div');
+        return $content;
     }
 }
